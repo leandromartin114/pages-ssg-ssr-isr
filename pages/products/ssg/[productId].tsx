@@ -25,7 +25,7 @@ export async function getStaticPaths() {
 			{ params: { productId: "recxRbXjrSVQkk8Vr" } },
 			{ params: { productId: "recwxufi2NDjDBXDS" } },
 		],
-		fallback: true, // can also be false or 'blocking'
+		fallback: "blocking", // can also be false or 'blocking'
 	};
 }
 
