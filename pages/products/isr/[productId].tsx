@@ -15,7 +15,7 @@ async function pullProductData(id: string) {
 }
 
 export async function getStaticProps(context: any) {
-	const productId = context.query.productId;
+	const productId = context.params.productId;
 	const data = await pullProductData(productId);
 	return { props: { data }, revalidate: 10 };
 }
