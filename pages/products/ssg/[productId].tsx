@@ -1,9 +1,9 @@
 function Product({ data }: any) {
 	return (
 		<div>
-			<h1>{JSON.stringify(data.Name)}</h1>
+			<h1>{JSON.stringify(data["Name"])}</h1>
 			<h2>{JSON.stringify(data["Unit cost"])}</h2>
-			<div>{JSON.stringify(data.Description)}</div>
+			<div>{JSON.stringify(data["Description"])}</div>
 		</div>
 	);
 }
@@ -16,7 +16,7 @@ async function pullProductData(id: string) {
 
 export async function getStaticProps(context: any) {
 	const productId = context.params.productId;
-	const data = await pullProductData(productId);
+	const data = await pullProductData(productId as string);
 	return { props: { data } };
 }
 export async function getStaticPaths() {

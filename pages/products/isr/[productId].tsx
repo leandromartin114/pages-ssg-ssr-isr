@@ -1,9 +1,9 @@
 function Product({ data }: any) {
 	return (
 		<div>
-			<h1>{JSON.stringify(data.Name)}</h1>
+			<h1>{JSON.stringify(data["Name"])}</h1>
 			<h2>{JSON.stringify(data["Unit cost"])}</h2>
-			<div>{JSON.stringify(data.Description)}</div>
+			<div>{JSON.stringify(data["Description"])}</div>
 		</div>
 	);
 }
@@ -16,13 +16,13 @@ async function pullProductData(id: string) {
 
 export async function getStaticProps(context: any) {
 	const productId = context.params.productId;
-	const data = await pullProductData(productId);
+	const data = await pullProductData(productId as string);
 	return { props: { data }, revalidate: 10 };
 }
 export async function getStaticPaths() {
 	return {
 		paths: [],
-		fallback: true, // can also be false or 'blocking'
+		fallback: "blocking", // can also be false or 'blocking'
 	};
 }
 
