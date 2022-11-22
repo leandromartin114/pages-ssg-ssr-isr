@@ -22,8 +22,8 @@ export async function getStaticProps(context: any) {
 export async function getStaticPaths() {
 	return {
 		paths: [
-			{ params: { id: "recxRbXjrSVQkk8Vr" } },
-			{ params: { id: "recwxufi2NDjDBXDS" } },
+			{ params: { productId: "recxRbXjrSVQkk8Vr" } },
+			{ params: { productId: "recwxufi2NDjDBXDS" } },
 		],
 		fallback: false, // can also be true or 'blocking'
 	};
